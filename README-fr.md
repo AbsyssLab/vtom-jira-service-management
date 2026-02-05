@@ -101,6 +101,34 @@ Pour mapper les variables VTOM aux champs personnalisés Jira :
 3. Notez les IDs des champs (ils commencent par `customfield_`)
 4. Mettez à jour les `custom_field_mappings` dans votre fichier de configuration
 
+# Actions disponibles
+
+## Objectifs global: 
+
+- ➡️ Créer automatiquement des tickets Jira à partir d’alarmes VTOM
+- ➡️ Éviter les doublons en réutilisant un ticket existant si possible
+- ➡️ Tracer les alarmes successives (via tickets liés + commentaires + pièces jointes)
+  
+1. Il se connecte à Jira via l’API REST
+2. Il analyse l’alarme VTOM reçue (paramètres CLI)
+3. Il cherche s’il existe déjà un ticket ouvert pour le même objet VTOM
+4. Selon le cas :
+   soit il crée un nouveau ticket
+   soit il crée un ticket lié à un ticket existant
+5. Il ajoute :
+   des pièces jointes (logs)
+   un commentaire horodaté
+
+## Arguments du script 
+Le script est lancé en ligne de commande avec les paramètres suivants : 
+- --projectKey → projet Jira
+- --summary → résumé du ticket
+- --description → description détaillée
+- --objectName → nom de l’objet VTOM
+- --severity → gravité VTOM
+- --alarmType → type d’alarme VTOM
+- fichiers de logs à joindre (stdout / stderr)
+
 ### Mapping des priorités et types d'issues
 
 Les scripts supportent le mapping automatique des niveaux de sévérité VTOM vers les priorités Jira et des types d'alarmes vers les types d'issues. Configurez ces mappings dans votre fichier de configuration.
