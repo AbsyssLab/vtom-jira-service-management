@@ -103,7 +103,7 @@ Pour mapper les variables VTOM aux champs personnalisés Jira :
 
 # Actions disponibles
 
-## Objectifs global: 
+## Objectifs global
 
 - ➡️ Créer automatiquement des tickets Jira à partir d’alarmes VTOM
 - ➡️ Éviter les doublons en réutilisant un ticket existant si possible
