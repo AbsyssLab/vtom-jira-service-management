@@ -105,7 +105,35 @@ To map VTOM variables to Jira custom fields:
 
 The scripts support automatic mapping of VTOM severity levels to Jira priorities and alarm types to issue types. Configure these mappings in your config file.
 
+# Available Actions
 
+## Global Objectives
+
+- ➡️ Automatically create Jira tickets from VTOM alarms
+- ➡️ Avoid duplicate tickets by reusing an existing ticket whenever possible
+- ➡️ Track successive alarms (through linked tickets, comments, and attachments)
+
+The script:
+1. Connects to Jira using the REST API
+2. Analyzes the received VTOM alarm (via CLI parameters)
+3. Checks whether an open ticket already exists for the same VTOM object
+4. Depending on the situation:
+  Creates a new ticket, or
+  Creates a ticket linked to an existing one
+5. Adds:
+  Attachments (log files)
+  A timestamped comment
+
+## Script Arguments
+
+The script is executed from the command line with the following parameters:
+- --projectKey → Jira project key
+- --summary → Ticket summary
+- --description → Detailed ticket description
+- --objectName → VTOM object name (Applications, Jobs...)
+- --severity → VTOM alarm severity
+- --alarmType → VTOM alarm type
+- Log files to attach (stdout / stderr)
 
 # License
 This project is licensed under the Apache 2.0 License - see the [LICENSE](license) file for details
