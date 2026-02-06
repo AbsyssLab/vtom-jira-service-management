@@ -109,14 +109,14 @@ The scripts support automatic mapping of VTOM severity levels to Jira priorities
 
 ## Global Objectives
 
-- ➡️ Automatically create Jira tickets from VTOM alarms
+- ➡️ Automatically create Jira tickets from Visual TOM alarms
 - ➡️ Avoid duplicate tickets by reusing an existing ticket whenever possible
 - ➡️ Track successive alarms (through linked tickets, comments, and attachments)
 
 The script:
 1. Connects to Jira using the REST API
-2. Analyzes the received VTOM alarm (via CLI parameters)
-3. Checks whether an open ticket already exists for the same VTOM object
+2. Analyzes the received Visual TOM alarm (via CLI parameters)
+3. Checks whether an open ticket already exists for the same Visual TOM object (Application or Job)
 4. Depending on the situation:
   Creates a new ticket, or
   Creates a ticket linked to an existing one
